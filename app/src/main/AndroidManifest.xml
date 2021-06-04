@@ -18,6 +18,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ModifyActivity"></activity>
+        <activity android:name=".SetActivity"></activity>
+        <receiver android:name=".Alarm_Receiver" />
+
+        <service
+            android:name=".RingtonePlayingService"
+            android:enabled="true"></service>
     </application>
 
 </manifest>

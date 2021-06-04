@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="7dp"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:id="@+id/alarmlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/namealarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="30dp"
+            android:text="이름"/>
+
+        <TextView
+            android:id="@+id/houralarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/namealarm"
+            android:layout_marginLeft="20dp"
+            android:textSize="30dp"
+            android:text="시"
+            />
+
+        <TextView
+            android:id="@+id/minutealarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/houralarm"
+            android:layout_marginLeft="20dp"
+            android:textSize="30dp"
+            android:text="분"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>
