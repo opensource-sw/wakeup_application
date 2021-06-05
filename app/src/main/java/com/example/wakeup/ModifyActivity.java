@@ -1,15 +1,21 @@
 package com.example.wakeup;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.SparseBooleanArray;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.wakeup.SQLite.AlarmList;
 import com.example.wakeup.SQLite.SQLiteHelper;
 
 import java.util.ArrayList;
@@ -20,7 +26,11 @@ public class ModifyActivity extends AppCompatActivity {
     Button button_delete;
 
     ListView alarmlist;
-    ArrayList<String> items;
+    ArrayList<AlarmList> list;
+    alarmadapter adapter;
+
+    SQLiteHelper helper;
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +50,13 @@ public class ModifyActivity extends AppCompatActivity {
         //   button_delete.setOnClickListener(new Button.OnClickListener() {
         //       public void onClick(View v) {
         //           db Delete= new db();
-
-
         //       }
         //   }) ;
 
 
         ///// 리스트 뷰 작업 end
+        helper = new SQLiteHelper(this);
+        db = helper.getWritableDatabase();
 
         alarmlist = (ListView)findViewById(R.id.alarm_list);
         button_add = (Button)findViewById(R.id.button_add);
@@ -70,39 +80,52 @@ public class ModifyActivity extends AppCompatActivity {
             }
         });
 
-    /*    button_delete.setOnClickListener(new View.OnClickListener() {
+        button_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(ModifyActivity.this,"선택한 알람이 삭제됩니다.",Toast.LENGTH_SHORT).show();
+                SparseBooleanArray checkedItems = alarmlist.getCheckedItemPositions();
+                int count = adapter.getCount() ; //리스트 갯수
 
-                db Delete = new db();
-                Delete.db.execSQL("delete from MYDRUG ");
-            }
-        }); */
-     /*   button_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //버튼 클릭시 리스트뷰 아이템 중 가장 밑에 있는 아이템 삭제하는 동작 입력
-
-                    int count, checked ;
-                    count = mydrugadapter.getCount() ;
-
-                    if (count > 0) {
-                        // 현재 선택된 아이템의 position 획득.
-                        checked = listview.getCheckedItemPosition();
-
-                        if (checked > -1 && checked < count) {
-                            // 아이템 삭제
-                            items.remove(checked) ;
-
-                            // listview 선택 초기화.
-                            listview.clearChoices();
-
-                            // listview 갱신.
-                            adapter.notifyDataSetChanged();
-                        }
+                for (int i=count-1;  i>=0; i--) {
+                    if (checkedItems.get(i)) {
+                        //db.execSQL("delete from Alarm where name ='"+ list[i].getName()+"';"); //items.remove(i);, items -> list
                     }
+                }
+                //모든 선택 상태 초기화
+                alarmlist.clearChoices();
+                adapter.notifyDataSetChanged();
+                /*if (count > 0) {
+                    // 현재 선택된 아이템의 position 획득.
+                    checked = alarmlist.getCheckedItemPosition();
+                    if (checked > -1 && checked < count) {
+                        // 아이템 삭제
+                        //list.remove(checked);
+                        db.execSQL("delete from Alarm where name ='"+ alarmlist.getName()+"';");
+                        // listview 선택 초기화.
+                        alarmlist.clearChoices();
+                        // listview 갱신.
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+                alarmlist.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        AlarmList alarm= (AlarmList)parent.getItemAtPosition(position);
+                        db.execSQL("delete from Alarm where name ='"+ alarm.getName()+"';");
+                        adapter.notifyDataSetChanged();//중단됨
+                    }
+                });*/
             }
-        });*/
+        });
+
+        alarmlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ModifyActivity.this, SetActivity.class);
+                startActivity(intent);
+            }
+        });
 
         displayList();
     }
