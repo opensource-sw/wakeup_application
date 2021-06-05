@@ -50,7 +50,7 @@ public class SetActivity extends AppCompatActivity {
 
         //요일
         cbMon=findViewById(R.id.cb_mon);
-        cbTue=findViewById(R.id.cb_thu);
+        cbTue=findViewById(R.id.cb_tue);
         cbWed=findViewById(R.id.cb_wed);
         cbThu=findViewById(R.id.cb_thu);
         cbFri=findViewById(R.id.cb_fri);
