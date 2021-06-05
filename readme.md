@@ -6,7 +6,7 @@
 
 ## 📌Roles
 * 김희지
-  *  Main activity
+  *  Activity 총괄
   *  Git 관리
   *  배포
 * 박다빈
