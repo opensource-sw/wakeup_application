@@ -1,4 +1,4 @@
-package com.example.wakeup.SQLite;
+package com.example.wakeup;
 
 public class MathProblem {
     public String Question[]={  //문제질문

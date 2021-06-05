@@ -44,14 +44,28 @@ public class MainActivity extends AppCompatActivity {
         button_quiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
+                Toast.makeText(MainActivity.this,"알람을 종료하기 위해 수학문제를 실행합니다",Toast.LENGTH_SHORT).show();
+                // 알람매니저 취소
+                //alarm_manager.cancel(pendingIntent);
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), MathQuiz.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                },3000);
+                my_intent.putExtra("state","alarm off");
+                // 알람취소
+                sendBroadcast(my_intent);
             }
         });
         button_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Alarm 종료",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"알람을 종료하기위해 가위바위보 게임을 실행합니다",Toast.LENGTH_SHORT).show();
                 // 알람매니저 취소
                 //alarm_manager.cancel(pendingIntent);
 

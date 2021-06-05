@@ -24,6 +24,7 @@
         <activity android:name=".ModifyActivity"></activity>
         <activity android:name=".SetActivity"></activity>
         <activity android:name=".RspgameActivity"></activity>
+        <activity android:name=".MathQuiz"></activity>
         <receiver android:name=".Alarm_Receiver" />
 
         <service

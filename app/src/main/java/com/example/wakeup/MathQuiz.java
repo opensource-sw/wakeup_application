@@ -1,4 +1,4 @@
-package com.example.wakeup.SQLite;
+package com.example.wakeup;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +37,7 @@ public class MathQuiz extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mathquiz);
+        setContentView(R.layout.activity_mathquiz);
 
         Clock=(TextClock)findViewById(R.id.Clock);
         PM_AM=(TextClock)findViewById(R.id.PM_AM);
@@ -51,14 +51,14 @@ public class MathQuiz extends AppCompatActivity {
         button4=(Button)findViewById(R.id.button4);
 
 
-        Uri notification =RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        /*Uri notification =RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         final Ringtone ringtone = RingtoneManager.getRingtone(getApplicationContext(),notification);
         AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build();
         ringtone.setAudioAttributes(audioAttributes);
         ringtone.play(); // 알람시작
 
         final Vibrator vibrator=(Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
-        vibrator.vibrate(new long[]{3000,1000}, 0);
+        vibrator.vibrate(new long[]{3000,1000}, 0); */
 
         if(!running){
             Time.start();
@@ -78,8 +78,7 @@ public class MathQuiz extends AppCompatActivity {
                     button2.setEnabled(false);
                     button3.setEnabled(false);
                     button4.setEnabled(false);
-                    ringtone.stop(); //알람종료
-                    vibrator.cancel(); //진동종료
+
                     new Handler().postDelayed(new Runnable()
                     {
                         @Override
@@ -120,8 +119,7 @@ public class MathQuiz extends AppCompatActivity {
                     button1.setEnabled(false);
                     button3.setEnabled(false);
                     button4.setEnabled(false);
-                    ringtone.stop();
-                    vibrator.cancel();
+
                     new Handler().postDelayed(new Runnable()
                     {
                         @Override
@@ -161,8 +159,7 @@ public class MathQuiz extends AppCompatActivity {
                     button1.setEnabled(false);
                     button2.setEnabled(false);
                     button4.setEnabled(false);
-                    ringtone.stop();
-                    vibrator.cancel();
+
                     new Handler().postDelayed(new Runnable()
                     {
                         @Override
@@ -203,8 +200,7 @@ public class MathQuiz extends AppCompatActivity {
                     button1.setEnabled(false);
                     button2.setEnabled(false);
                     button3.setEnabled(false);
-                    ringtone.stop();
-                    vibrator.cancel();
+
                     new Handler().postDelayed(new Runnable()
                     {
                         @Override

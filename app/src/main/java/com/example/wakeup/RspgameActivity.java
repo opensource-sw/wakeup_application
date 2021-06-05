@@ -10,6 +10,7 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Button;
@@ -99,7 +100,7 @@ class MyButtonLis extends Activity implements View.OnClickListener
         }else if(view.equals(btn01))
         {
 
-            //chageText.setText("가위");
+            chageText.setText("가위");
 
             atimer.cancel();
             if(atimer.i==1)
@@ -111,8 +112,19 @@ class MyButtonLis extends Activity implements View.OnClickListener
                 chageText.setText("YOU WIN\n" + (3-count) + " 번 남았습니다. \n시작버튼을 다시 누르세요.");
                 if (count == 3) // 세번이기면 앱 종료
                 {
-                    ActivityCompat.finishAffinity(this);
-                    System.exit(0);
+                    /*ActivityCompat.finishAffinity(this);
+                    System.exit(0);*/
+                    new Handler().postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            moveTaskToBack(true);
+                            finishAndRemoveTask();
+                            android.os.Process.killProcess(android.os.Process.myPid());
+                        }
+                    }, 1);
+
                 }
             }else
             {
@@ -133,8 +145,18 @@ class MyButtonLis extends Activity implements View.OnClickListener
                 chageText.setText("YOU WIN\n" + (3-count) + " 번 남았습니다. \n시작버튼을 다시 누르세요.");
                 if (count == 3) // 세번이기면 앱 종료
                 {
-                    ActivityCompat.finishAffinity(this);
-                    System.exit(0);
+                    new Handler().postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            moveTaskToBack(true);
+                            finishAndRemoveTask();
+                            android.os.Process.killProcess(android.os.Process.myPid());
+                        }
+                    }, 1);
+                    /*ActivityCompat.finishAffinity(this);
+                    System.exit(0);*/
                 }
             }else
             {
@@ -158,8 +180,18 @@ class MyButtonLis extends Activity implements View.OnClickListener
                 chageText.setText("YOU WIN\n" + (3-count) + " 번 남았습니다. \n시작버튼을 다시 누르세요.");
                 if (count == 3) // 세번이기면 앱 종료
                 {
-                    ActivityCompat.finishAffinity(this);
-                    System.exit(0);
+                    new Handler().postDelayed(new Runnable()
+                    {
+                        @Override
+                        public void run()
+                        {
+                            moveTaskToBack(true);
+                            finishAndRemoveTask();
+                            android.os.Process.killProcess(android.os.Process.myPid());
+                        }
+                    }, 1);
+                    /*ActivityCompat.finishAffinity(this);
+                    System.exit(0);*/
                 }
             }else
             {
