@@ -17,27 +17,46 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:textSize="30dp"
-            android:text="이름" />
+            android:text="이름"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_toRightOf="@id/namealarm"
+            android:text="시"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/houralarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="-1dp"
             android:layout_toRightOf="@id/namealarm"
-            android:layout_marginLeft="20dp"
-            android:textSize="30dp"
-            android:text="시" />
+            android:text="시"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/minute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="73dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/houralarm"
+            android:text="분"
+            android:textSize="30dp" />
 
         <TextView
             android:id="@+id/minutealarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/houralarm"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginRight="20dp"
-            android:textSize="30dp"
-            android:text="분" />
+            android:layout_toRightOf="@id/houralarm"
+            android:text="분"
+            android:textSize="30dp" />
 
         <CheckBox
             android:id="@+id/deletealarm"
