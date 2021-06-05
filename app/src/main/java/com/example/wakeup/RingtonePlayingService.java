@@ -14,6 +14,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
@@ -65,11 +66,10 @@ public class RingtonePlayingService extends Service {
         AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build();
         ringtone.setAudioAttributes(audioAttributes);
         ringtone.play();
-
-
     }
 
-    /*@Override
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         String getState = intent.getExtras().getString("state");
@@ -134,5 +134,5 @@ public class RingtonePlayingService extends Service {
 
         Log.d("onDestory() 실행", "서비스 파괴");
 
-    } */
+    }
 }

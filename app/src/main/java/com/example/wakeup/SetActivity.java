@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -105,37 +106,10 @@ public class SetActivity extends AppCompatActivity {
         alarm_off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SetActivity.this,"Alarm 종료",Toast.LENGTH_SHORT).show();
-                // 알람매니저 취소
-                alarm_manager.cancel(pendingIntent);
-
-                my_intent.putExtra("state","alarm off");
-
-                // 알람취소
-                sendBroadcast(my_intent);
-
                 Intent intent = new Intent(SetActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
-        //btn1 선택시 수학게임풀기
-        /*btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //입력 필요
-                //Intent intent = new Intent(this, 수학게임액티비티.class)
-            }
-        });
-        //btn2 선택시 가위바위보
-        btn2.setOnClickListener((new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //입력 필요
-                //Intent intent = new Intent(this, 가위바위보액티비티.class)
-            }
-        }));
-
-         */
 
     }
 }
