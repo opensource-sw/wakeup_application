@@ -18,7 +18,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS ALARM (name TEXT PRIMARY KEY NOT NULL, hour INT NOT NULL, minute INT NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS ALARM (name TEXT PRIMARY KEY NOT NULL, weekday INT NOT NULL, hour INT NOT NULL, minute INT NOT NULL)");
 
     }
 

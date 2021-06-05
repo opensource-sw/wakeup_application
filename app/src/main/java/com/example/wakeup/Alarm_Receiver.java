@@ -6,9 +6,14 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Alarm_Receiver extends BroadcastReceiver{
 
     Context context;
+    static String TAG="Alarm";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -29,5 +34,15 @@ public class Alarm_Receiver extends BroadcastReceiver{
         }else{
             this.context.startService(service_intent);
         }
+
+        //요일
+        boolean[] week = intent.getBooleanArrayExtra("weekday");
+
+        Calendar cal = Calendar.getInstance();
+
+        if (!week[cal.get(Calendar.DAY_OF_WEEK)]) return; // 체크한 요일이 아니면
+
+        service_intent.putExtra("setDay",cal.get(Calendar.DAY_OF_WEEK));
+
     }
 }

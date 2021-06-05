@@ -62,6 +62,13 @@ public class SetActivity extends AppCompatActivity {
         // 알람리시버 intent 생성
         final Intent my_intent = new Intent(this.context, Alarm_Receiver.class);
 
+        boolean[] week = { false, cbMon.isChecked(), cbTue.isChecked(), cbWed.isChecked(),
+                cbThu.isChecked(), cbFri.isChecked(), cbSat.isChecked(), cbSun.isChecked() };
+        Intent intent = new Intent(this, SetActivity.class);
+        intent.putExtra("weekday", week);
+        PendingIntent pIntent = PendingIntent.getBroadcast(this, 0,intent, 0); //PendingIntent.FLAG_UPDATE_CURRENT
+
+
         // 알람 시작 버튼
         Button alarm_on = findViewById(R.id.btn_save);
 
@@ -76,6 +83,36 @@ public class SetActivity extends AppCompatActivity {
                 calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getHour());
                 calendar.set(Calendar.MINUTE, alarm_timepicker.getMinute());
 
+
+                Intent dayintent=getIntent();
+                int setDay=dayintent.getIntExtra("setDay",0);
+                String day="";
+                switch (setDay){
+                    case 0:
+                        day="err";
+                        break;
+                    case 1:
+                        day="월요일";
+                        break;
+                    case 2:
+                        day="화요일";
+                        break;
+                    case 3:
+                        day="수요일";
+                        break;
+                    case 4:
+                        day="목요일";
+                        break;
+                    case 5:
+                        day="금요일";
+                        break;
+                    case 6:
+                        day="토요일";
+                        break;
+                    case 7:
+                        day="일요일";
+                        break;
+                }
                 // 시간 가져옴
                 int hour = alarm_timepicker.getHour();
                 int minute = alarm_timepicker.getMinute();
