@@ -60,7 +60,7 @@ public class SetActivity extends AppCompatActivity {
         final Calendar calendar = Calendar.getInstance();
 
         // 알람리시버 intent 생성
-        final Intent my_intent = new Intent(this.context, Alarm_Receiver.class);
+        final Intent my_intent = new Intent(this, Alarm_Receiver.class);
 
         // 알람 시작 버튼
         Button alarm_on = findViewById(R.id.btn_save);
@@ -75,19 +75,19 @@ public class SetActivity extends AppCompatActivity {
                 // calendar에 시간 셋팅
                 calendar.set(Calendar.HOUR_OF_DAY, alarm_timepicker.getHour());
                 calendar.set(Calendar.MINUTE, alarm_timepicker.getMinute());
+                calendar.set(Calendar.SECOND, 0);
 
                 // 시간 가져옴
                 int hour = alarm_timepicker.getHour();
                 int minute = alarm_timepicker.getMinute();
-                Toast.makeText(SetActivity.this,"Alarm 예정 " + hour + "시 " + minute + "분",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SetActivity.this,"Alarm 예정 " + hour + "시 " + minute + "분", Toast.LENGTH_SHORT).show();
 
                 // receiver에 string 값 넘겨주기
                 my_intent.putExtra("state","alarm on");
 
-                pendingIntent = PendingIntent.getBroadcast(SetActivity.this, 0, my_intent,
-                        PendingIntent.FLAG_UPDATE_CURRENT);
+                pendingIntent = PendingIntent.getBroadcast(SetActivity.this, 0, my_intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-                // 알람셋팅
+                //알람셋팅
                 alarm_manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                         pendingIntent);
 

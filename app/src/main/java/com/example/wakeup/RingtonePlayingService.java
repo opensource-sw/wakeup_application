@@ -8,11 +8,17 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioAttributes;
 import android.media.MediaPlayer;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+
+import android.os.Vibrator;
 import android.util.Log;
 
 
@@ -50,5 +56,83 @@ public class RingtonePlayingService extends Service {
 
             startForeground(1, notification);
         }
+
+        final Vibrator vibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE); // 진동울리기
+        vibrator.vibrate(new long[]{3000,1000},0);
+
+        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        final Ringtone ringtone = RingtoneManager.getRingtone(getApplicationContext(),notification);
+        AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build();
+        ringtone.setAudioAttributes(audioAttributes);
+        ringtone.play();
+
+
     }
+
+    /*@Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        String getState = intent.getExtras().getString("state");
+
+        assert getState != null;
+        switch (getState) {
+            case "alarm on":
+                startId = 1;
+                break;
+            case "alarm off":
+                startId = 0;
+                break;
+            default:
+                startId = 0;
+                break;
+        }
+
+        // 알람음 재생 X , 알람음 시작 클릭
+        if(!this.isRunning && startId == 1) {
+
+            mediaPlayer = MediaPlayer.create(this,R.raw.wakeup);
+            mediaPlayer.start();
+
+            this.isRunning = true;
+            this.startId = 0;
+        }
+
+        // 알람음 재생 O , 알람음 종료 버튼 클릭
+        else if(this.isRunning && startId == 0) {
+
+            mediaPlayer.stop();
+            mediaPlayer.reset();
+            mediaPlayer.release();
+
+            this.isRunning = false;
+            this.startId = 0;
+        }
+
+        // 알람음 재생 X , 알람음 종료 버튼 클릭
+        else if(!this.isRunning && startId == 0) {
+
+            this.isRunning = false;
+            this.startId = 0;
+
+        }
+
+        // 알람음 재생 O , 알람음 시작 버튼 클릭
+        else if(this.isRunning && startId == 1){
+
+            this.isRunning = true;
+            this.startId = 1;
+        }
+
+        else {
+        }
+        return START_NOT_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        Log.d("onDestory() 실행", "서비스 파괴");
+
+    } */
 }
