@@ -60,12 +60,13 @@ public class RingtonePlayingService extends Service {
 
         final Vibrator vibrator = (Vibrator)getSystemService(VIBRATOR_SERVICE); // 진동울리기
         vibrator.vibrate(new long[]{3000,1000},0);
-
-        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        mediaPlayer = MediaPlayer.create(this,R.raw.wakeup);
+        mediaPlayer.start();
+        /*Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         final Ringtone ringtone = RingtoneManager.getRingtone(getApplicationContext(),notification);
         AudioAttributes audioAttributes = new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).build();
         ringtone.setAudioAttributes(audioAttributes);
-        ringtone.play();
+        ringtone.play();*/
     }
 
 
