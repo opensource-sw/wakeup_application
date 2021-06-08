@@ -1,4 +1,4 @@
-package com.example.wakeup;
+package com.wakeUp.wakeup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -17,7 +16,7 @@ import android.widget.RadioButton;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.wakeup.SQLite.SQLiteHelper;
+import com.wakeUp.wakeup.SQLite.SQLiteHelper;
 
 import java.util.Calendar;
 

@@ -1,6 +1,5 @@
-package com.example.wakeup;
+package com.wakeUp.wakeup;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,14 +8,13 @@ import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.wakeup.SQLite.AlarmList;
-import com.example.wakeup.SQLite.SQLiteHelper;
+import com.wakeUp.wakeup.SQLite.AlarmList;
+import com.wakeUp.wakeup.SQLite.SQLiteHelper;
 
 import java.util.ArrayList;
 

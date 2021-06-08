@@ -1,6 +1,4 @@
-package com.example.wakeup.SQLite;
-
-import android.graphics.drawable.Drawable;
+package com.wakeUp.wakeup.SQLite;
 
 public class AlarmList {
     private String name;

@@ -1,4 +1,4 @@
-package com.example.wakeup;
+package com.wakeUp.wakeup;
 
 import androidx.appcompat.app.AppCompatActivity;
 

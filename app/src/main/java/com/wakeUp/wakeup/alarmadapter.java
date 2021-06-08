@@ -1,15 +1,13 @@
-package com.example.wakeup;
+package com.wakeUp.wakeup;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import android.widget.CheckBox;
 import android.widget.TextView;
-import com.example.wakeup.SQLite.AlarmList;
+import com.wakeUp.wakeup.SQLite.AlarmList;
 
 import java.util.ArrayList;
 

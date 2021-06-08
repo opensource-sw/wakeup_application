@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.wakeup">
+    package="com.wakeUp.wakeup">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -13,22 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Wakeup">
-        <activity android:name=".LogoActivity">
+        <activity android:name="com.wakeUp.wakeup.LogoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".ModifyActivity"></activity>
-        <activity android:name=".SetActivity"></activity>
-        <activity android:name=".RspgameActivity"></activity>
-        <activity android:name=".MathQuiz"></activity>
-        <receiver android:name=".Alarm_Receiver" />
+        <activity android:name="com.wakeUp.wakeup.MainActivity"></activity>
+        <activity android:name="com.wakeUp.wakeup.ModifyActivity"></activity>
+        <activity android:name="com.wakeUp.wakeup.SetActivity"></activity>
+        <activity android:name="com.wakeUp.wakeup.RspgameActivity"></activity>
+        <activity android:name="com.wakeUp.wakeup.MathQuiz"></activity>
+        <receiver android:name="com.wakeUp.wakeup.Alarm_Receiver" />
 
         <service
-            android:name=".RingtonePlayingService"
+            android:name="com.wakeUp.wakeup.RingtonePlayingService"
             android:enabled="true"></service>
     </application>
 

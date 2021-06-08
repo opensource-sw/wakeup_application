@@ -1,4 +1,4 @@
-package com.example.wakeup.SQLite;
+package com.wakeUp.wakeup.SQLite;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
